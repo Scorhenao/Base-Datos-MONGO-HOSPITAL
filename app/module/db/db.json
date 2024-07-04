@@ -1,248 +1,201 @@
-// TIPOS_DE_DOCUMENTOS:
-{
-    "_id": ObjectId("..."),
+// TIPOS_DE_DOCUMENTOS
+db.TIPOS_DE_DOCUMENTOS.insertOne({
     "Nombre": "Pasaporte"
-}
+})
 
-// CONTACTOS_DE_EMERGENCIA:
-{
-    "_id": ObjectId("..."),
+// CONTACTOS_DE_EMERGENCIA
+db.CONTACTOS_DE_EMERGENCIA.insertOne({
     "Nombre": "Juan Pérez",
     "Telefono": "123456789"
-}
+})
 
-// PACIENTES:
-{
-    "_id": ObjectId("..."),
+// PACIENTES
+db.PACIENTES.insertOne({
     "Nombre": "Maria",
     "Apellidos": "Gonzalez",
     "TelefonoDeContacto": "987654321",
     "NumeroDeDocumento": "12345678901",
     "TipoDeDocumento": {
-        "_id": ObjectId("..."),
         "Nombre": "Pasaporte"
     },
     "ContactoDeEmergencia": {
-        "_id": ObjectId("..."),
         "Nombre": "Juan Pérez",
         "Telefono": "123456789"
     },
     "Alergias": [
         {
-            "_id": ObjectId("..."),
             "NombreDeAlergia": "Polen",
             "TipoDeAlergia": "Ambiental"
         }
     ]
-}
+})
 
-// RAZONES_DE_INGRESO:
-{
-    "_id": ObjectId("..."),
+// RAZONES_DE_INGRESO
+db.RAZONES_DE_INGRESO.insertOne({
     "Observacion": "Dolor abdominal",
-    "Fecha": "2023-06-12T00:00:00Z",
+    "Fecha": ISODate("2023-06-12T00:00:00Z"),
     "Paciente": {
-        "_id": ObjectId("..."),
         "Nombre": "Maria"
     }
-}
+})
 
-// ALERGIAS:
-{
-    "_id": ObjectId("..."),
+// ALERGIAS
+db.ALERGIAS.insertOne({
     "NombreDeAlergia": "Polen",
     "TipoDeAlergia": "Ambiental"
-}
+})
 
-// GENEROS:
-{
-    "_id": ObjectId("..."),
+// GENEROS
+db.GENEROS.insertOne({
     "Nombre": "Femenino"
-}
+})
 
-// TITULOS:
-{
-    "_id": ObjectId("..."),
+// TITULOS
+db.TITULOS.insertOne({
     "Nombre": "Doctor"
-}
+})
 
-// CONTRATOS:
-{
-    "_id": ObjectId("..."),
-    "FechaDeInicioDeContrato": "2023-01-01T00:00:00Z",
+// CONTRATOS
+db.CONTRATOS.insertOne({
+    "FechaDeInicioDeContrato": ISODate("2023-01-01T00:00:00Z"),
     "Salario": 50000
-}
+})
 
-// SALAS_UCI:
-{
-    "_id": ObjectId("..."),
+// SALAS_UCI
+db.SALAS_UCI.insertOne({
     "Descripcion": "Sala UCI 1"
-}
+})
 
-// CAMAS:
-{
-    "_id": ObjectId("..."),
+// CAMAS
+db.CAMAS.insertOne({
     "Estado": "Ocupada",
     "Paciente": {
-        "_id": ObjectId("..."),
         "Nombre": "Maria"
     },
     "SalaUCI": {
-        "_id": ObjectId("..."),
         "Descripcion": "Sala UCI 1"
     }
-}
+})
 
-// ENFERMERAS:
-{
-    "_id": ObjectId("..."),
+// ENFERMERAS
+db.ENFERMERAS.insertOne({
     "Nombre": "Ana",
     "Apellidos": "Lopez",
     "TelefonoDeContacto": "1122334455",
-    "FechaDeNacimiento": "1990-05-15T00:00:00Z",
+    "FechaDeNacimiento": ISODate("1990-05-15T00:00:00Z"),
     "NumeroDeDocumento": "12345678901",
     "AniosDeExperiencia": 5,
     "Genero": {
-        "_id": ObjectId("..."),
         "Nombre": "Femenino"
     },
     "TipoDeDocumento": {
-        "_id": ObjectId("..."),
         "Nombre": "DNI"
     },
     "Contrato": {
-        "_id": ObjectId("..."),
-        "FechaDeInicioDeContrato": "2023-01-01T00:00:00Z",
+        "FechaDeInicioDeContrato": ISODate("2023-01-01T00:00:00Z"),
         "Salario": 50000
     },
     "SalaUCI": {
-        "_id": ObjectId("..."),
         "Descripcion": "Sala UCI 1"
     }
-}
+})
 
-// MEDICOS:
-{
-    "_id": ObjectId("..."),
+// MEDICOS
+db.MEDICOS.insertOne({
     "Nombre": "Carlos",
     "Apellidos": "Martinez",
     "TelefonoDeContacto": "5566778899",
-    "FechaDeNacimiento": "1980-08-20T00:00:00Z",
+    "FechaDeNacimiento": ISODate("1980-08-20T00:00:00Z"),
     "NumeroDeDocumento": "12345678901",
     "Titulo": {
-        "_id": ObjectId("..."),
         "Nombre": "Doctor"
     },
     "Genero": {
-        "_id": ObjectId("..."),
         "Nombre": "Masculino"
     },
     "TipoDeDocumento": {
-        "_id": ObjectId("..."),
         "Nombre": "DNI"
     },
     "Contrato": {
-        "_id": ObjectId("..."),
-        "FechaDeInicioDeContrato": "2023-01-01T00:00:00Z",
+        "FechaDeInicioDeContrato": ISODate("2023-01-01T00:00:00Z"),
         "Salario": 70000
     },
     "SalaUCI": {
-        "_id": ObjectId("..."),
         "Descripcion": "Sala UCI 1"
     }
-}
+})
 
-// SALIDAS:
-{
-    "_id": ObjectId("..."),
+// SALIDAS
+db.SALIDAS.insertOne({
     "Motivo": "Recuperación",
-    "Fecha": "2023-06-20T00:00:00Z",
+    "Fecha": ISODate("2023-06-20T00:00:00Z"),
     "TiempoDeEstadia": "8 días",
     "Medico": {
-        "_id": ObjectId("..."),
         "Nombre": "Carlos"
     },
     "Enfermera": {
-        "_id": ObjectId("..."),
         "Nombre": "Ana"
     },
     "Paciente": {
-        "_id": ObjectId("..."),
         "Nombre": "Maria"
     }
-}
+})
 
-// EXAMENES:
-{
-    "_id": ObjectId("..."),
+// EXAMENES
+db.EXAMENES.insertOne({
     "Nombre": "Análisis de sangre",
-    "Fecha": "2023-06-14T00:00:00Z",
+    "Fecha": ISODate("2023-06-14T00:00:00Z"),
     "Paciente": {
-        "_id": ObjectId("..."),
         "Nombre": "Maria"
     },
     "Medico": {
-        "_id": ObjectId("..."),
         "Nombre": "Carlos"
     }
-}
+})
 
-// DIAGNOSTICOS:
-{
-    "_id": ObjectId("..."),
+// DIAGNOSTICOS
+db.DIAGNOSTICOS.insertOne({
     "Paciente": {
-        "_id": ObjectId("..."),
         "Nombre": "Maria"
     },
     "Medico": {
-        "_id": ObjectId("..."),
         "Nombre": "Carlos"
     }
-}
+})
 
-// RESULTADOS:
-{
-    "_id": ObjectId("..."),
+// RESULTADOS
+db.RESULTADOS.insertOne({
     "Observacion": "Todo normal",
     "Examen": {
-        "_id": ObjectId("..."),
         "Nombre": "Análisis de sangre"
     },
     "Medico": {
-        "_id": ObjectId("..."),
         "Nombre": "Carlos"
     },
     "Diagnostico": {
-        "_id": ObjectId("..."),
         "Paciente": {
-            "_id": ObjectId("..."),
             "Nombre": "Maria"
         }
     }
-}
+})
 
-// MEDICAMENTOS:
-{
-    "_id": ObjectId("..."),
+// MEDICAMENTOS
+db.MEDICAMENTOS.insertOne({
     "Nombre": "Paracetamol",
     "Dosis": "500mg",
     "Enfermera": {
-        "_id": ObjectId("..."),
         "Nombre": "Ana"
     }
-}
+})
 
-// MEDICAMENTOS_DIAGNOSTICOS:
-{
+// MEDICAMENTOS_DIAGNOSTICOS
+db.MEDICAMENTOS_DIAGNOSTICOS.insertOne({
     "Diagnostico": {
-        "_id": ObjectId("..."),
         "Paciente": {
-            "_id": ObjectId("..."),
             "Nombre": "Maria"
         }
     },
     "Medicamento": {
-        "_id": ObjectId("..."),
         "Nombre": "Paracetamol"
     }
-}
+})
