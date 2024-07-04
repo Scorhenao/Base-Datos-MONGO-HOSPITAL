@@ -1,0 +1,168 @@
+-- Se utiliza para comparar si un cambo es igual a un valor especifico
+app.get("/api/users", async(req, res)=>{
+    const users = await User.find([edad: { $eq: 30}]);
+    res.json(users)
+})
+-- MongoDB shell
+db.users.find({ edad: { $eq: 30 } })
+
+
+-- Se utiliza para coparar si un campo no es igual a un valor especifico
+app.get("/api/users", async (req, res)=> {
+    const users = await User.find({edad: { $ne: 20}});
+    res.json(users)
+})
+-- MongoDB shell
+db.users.find({ edad: { $ne: 20 } })
+
+
+-- Se utiliza para comparar si un campo es mayor que un valor especifico
+app.get("/api/users", async (req, res)=> {
+    const users = await User.find({edad: { $gt: 20}});
+    res.json(users)
+})
+-- MongoDB Shell
+db.users.find({ edad: { $gt: 20 } })
+
+
+-- Se utiliza para comaprar su un campo  es menor que un valor especifico
+app.get("/api/users", async (req, res)=> {
+    const users = await User.find({edad: { $lt: 20}});
+    res.json(users)
+})
+-- MongoDB Shell
+db.users.find({ edad: { $lt: 20 } })
+
+
+
+-- Se utliza para comparar si un campo es mayor o igual que un valor especifico
+app.get("/api/users", async (req, res)=> {
+    const users = await User.find({edad: { $gte: 20}});
+    res.json(users)
+})
+-- MongoDB shell
+db.users.find({ edad: { $gte: 20 } })
+
+
+
+-- Se utiliza para comparar si un campo es menor o igual que un valor especifico
+app.get("/api/users", async (req, res)=> {
+    const users = await User.find({edad: { $lte: 20}});
+    res.json(users)
+})
+-- MongoDB Shell
+db.users.find({ edad: { $lte: 20 } })
+
+
+-- Se utiliza para buscar documentos donde el valor de un campo se encuentra de un array de valores
+app.get("/api/users", async (req, res)=> {
+    const users = await User.find({edad: { $in: [5, 10, 15]}});
+    res.json(users)
+})
+-- MongoDB Shell
+db.users.find({ edad: { $in: [5, 10, 15] } })
+
+
+-- Se utiliza para buscar documentos donde el valor de un campo no se encuentra dentro de un array de valores
+app.get("/api/users", async (req, res)=> {
+    const users = await User.find({edad: { $nin: [5, 10, 15]}});
+    res.json(users)
+})
+--MongoDB
+db.users.find({ edad: { $nin: [5, 10, 15] } })
+
+
+-- Se utliza para buscar documentos   donde un campo especifico existe o no existe
+app.get("/api/users", async (req, res)=>{
+    const users = await User.find({ edad: { $exists: true}});
+})
+-- MongoDB Shell
+// Para encontrar documentos donde el campo "edad" existe
+db.users.find({ edad: { $exists: true } })
+
+// Para encontrar documentos donde el campo "edad" no existe
+db.users.find({ edad: { $exists: false } })
+
+
+-- Se utiliza para buscar documentos donde un campo coincide con una expresion regular
+app.get("/api/users", async (req, res)=> {
+    const users = await User.find({ nombres: { $regrex: /^Angela/}});
+});
+-- MongoDB Shell
+db.users.find({ nombres: /^Angela/ })
+
+
+
+-- Se utiliza para buscar documentos que cumplan con multiples condiciones
+app.get("/api/users", async (req, res)=>{
+    const users = await Users.find(
+        {Sand:
+        [
+           {edad: {$gt: 20}}, --Mayor que
+           {edad: {$lt: 30}}  -- Menor que
+        ]
+
+        }
+        res.json(users)
+    )
+})
+--Mongo DB
+db.users.find({
+  $and: [
+    { edad: { $gt: 20 } }, // Mayor que 20
+    { edad: { $lt: 30 } }  // Menor que 30
+  ]
+})
+
+
+
+-- Se utiliza para buscar documentos que cumplan al menos una de varias condiciones
+app.get("/api/users", async(req, res) => {
+    const users = await User.find({
+        $or: [
+            {edad: { $lt: 20}},
+            {edad: { $gt: 30}}
+        ]
+    });
+    res.json(users)
+})
+-- MongoDB
+db.users.find({
+  $or: [
+    { edad: { $lt: 20 } }, // Menor que 20
+    { edad: { $gt: 30 } }  // Mayor que 30
+  ]
+})
+
+
+
+-- Se utiliza para invertir la seleccion de documentos basada en una condicion
+app.get("/api/users", async (req,res)=> {
+    const users = await User.find(
+        {edad: {$not}: {$gt: 30}};
+    )
+    res.json(users);
+})
+-- Mongo DB
+db.users.find({
+  edad: { $not: { $gt: 30 } }
+})
+
+
+--Se utiliza para buscar docuemntos que no cumpan ninguna de varias condiciones
+app.get("/api/users", async (req, res) => {
+    const users = await User.find({
+        $nor: [
+            {edad: { $lt: 20}},
+            {edad: { $gt: 30}}
+        ]
+    })
+    res.json(users)
+})
+--Mongo DB
+db.users.find({
+  $nor: [
+    { edad: { $lt: 20 } }, // Menor que 20
+    { edad: { $gt: 30 } }  // Mayor que 30
+  ]
+})
